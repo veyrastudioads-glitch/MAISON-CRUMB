@@ -133,6 +133,23 @@
        ========================================================================== */
   -->
   <section class="hero-section" id="hero" aria-label="Welcome to Maison Crumb">
+    <!-- Subtle Floating Bakery Details (Behind Content) -->
+    <div class="hero-bakery-detail detail-crumb-1" aria-hidden="true">
+      <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+        <path d="M2.5 1C5.5 0.5 9 1.8 10.5 4.5C12 7.2 9.5 9.5 6 9.5C2.5 9.5 0.5 7 1 4C1.5 2 1.8 1.2 2.5 1Z" fill="#3C2A22"/>
+      </svg>
+    </div>
+    <div class="hero-bakery-detail detail-berry-2" aria-hidden="true">
+      <svg width="10" height="13" viewBox="0 0 10 13" fill="none">
+        <path d="M5 0.5C7.5 3 9.5 6.5 8.5 9.5C7.5 12.5 3.5 12.8 1.8 10C0.5 7.5 2 2.5 5 0.5Z" fill="#BD6B54"/>
+      </svg>
+    </div>
+    <div class="hero-bakery-detail detail-flake-3" aria-hidden="true">
+      <svg width="11" height="9" viewBox="0 0 11 9" fill="none">
+        <path d="M1 4.5C2 1.5 6 0.5 8.5 1.5C10.5 2.5 10.8 6 9 7.5C7 9 3 8.5 1.5 7C0.8 6 0.5 5.5 1 4.5Z" fill="#C2A476"/>
+      </svg>
+    </div>
+
     <div class="container hero-grid">
       <!-- Left Column: Copy & CTAs -->
       <div class="hero-content">
@@ -197,7 +214,7 @@
       <!-- Right Column: Large Natural Cake Photography -->
       <div class="hero-media-wrapper hero-media-reveal">
         <div class="hero-media-card">
-          <img src="assets/images/hero-cake.jpg" alt="Artisanal celebration cake with rustic textured Swiss meringue buttercream and fresh raspberries" loading="eager" width="600" height="560">
+          <img id="heroParallaxImg" src="assets/images/hero-cake.jpg" alt="Artisanal celebration cake with rustic textured Swiss meringue buttercream and fresh raspberries" loading="eager" width="600" height="560">
           
           <!-- Floating Editorial Tag -->
           <div class="hero-floating-tag">
@@ -925,6 +942,15 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
       </div>
     </div>
   </section>
+
+  <!-- ==========================================================================
+       SUBTLE ORGANIC CHOCOLATE DRIP TRANSITION
+       ========================================================================== -->
+  <div class="chocolate-drip-wrapper" aria-hidden="true">
+    <svg class="chocolate-drip-svg" viewBox="0 0 1440 28" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C80,12 140,22 200,22 C250,22 290,8 370,8 C450,8 500,24 570,24 C630,24 670,6 750,6 C830,6 880,20 950,20 C1010,20 1060,5 1150,5 C1230,5 1290,19 1360,19 C1400,19 1420,10 1440,6 L1440,28 L0,28 Z" fill="var(--color-cocoa-900)"/>
+    </svg>
+  </div>
 
   <!-- ==========================================================================
        12. FOOTER

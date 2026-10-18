@@ -416,4 +416,46 @@ document.addEventListener('DOMContentLoaded', () => {
       toast.classList.remove('show');
     }, 4000);
   }
+
+  /* ==========================================================================
+     11. HERO PARALLAX INTERACTION (SUBTLE & ACCESSIBLE)
+     ========================================================================== */
+  const heroParallaxImg = document.getElementById('heroParallaxImg');
+  const heroSection = document.getElementById('hero');
+
+  if (heroParallaxImg && heroSection) {
+    let ticking = false;
+
+    const updateParallax = () => {
+      const isDesktop = window.innerWidth > 900;
+      const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!isDesktop || isReducedMotion) {
+        heroParallaxImg.style.transform = '';
+        return;
+      }
+
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const heroRect = heroSection.getBoundingClientRect();
+
+      // Only calculate while hero is in/near viewport
+      if (heroRect.bottom > 0) {
+        // Subtle lag movement capped at 24px
+        const parallaxY = Math.min(Math.max(scrollY * 0.08, 0), 24);
+        heroParallaxImg.style.transform = `translateY(${parallaxY.toFixed(1)}px)`;
+      }
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateParallax();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', updateParallax, { passive: true });
+  }
 });
