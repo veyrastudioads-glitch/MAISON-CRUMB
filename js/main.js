@@ -510,4 +510,183 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', updateParallax, { passive: true });
   }
+
+  /* ==========================================================================
+     11. SCROLL-DRIVEN CAKE BUILD ANIMATION (GSAP 3.12.5 + ScrollTrigger)
+     ========================================================================== */
+  function initCakeBuildScrollAnimation() {
+    // Check for required elements and libraries
+    const section = document.querySelector('.cake-build-section');
+    const pinTarget = document.querySelector('.cake-build-pin');
+    if (!section || !pinTarget || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ========================================================================
+    // CONFIGURATION CONSTANTS (Easily customize pin distances and timings)
+    // ========================================================================
+    const DESKTOP_PIN_DISTANCE = '+=400%'; // Pinned for ~400% viewport scroll on desktop
+    const MOBILE_PIN_DISTANCE  = '+=300%'; // Pinned for ~300% viewport scroll on mobile
+
+    const steps = gsap.utils.toArray('.cake-step-item');
+    const dots = gsap.utils.toArray('.cake-dot');
+    const badgeText = document.querySelector('.cake-stage-badge-text');
+
+    // Update active step, progress dots, and badge indicator
+    function setActiveStage(stageIndex) {
+      steps.forEach((step, i) => {
+        if (i === stageIndex) {
+          step.classList.add('active');
+        } else {
+          step.classList.remove('active');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i <= stageIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      if (badgeText) {
+        badgeText.textContent = `Stage ${stageIndex + 1} of 5`;
+      }
+    }
+
+    // Interactive progress dots click navigation
+    dots.forEach((dot, idx) => {
+      dot.style.cursor = 'pointer';
+      dot.addEventListener('click', () => {
+        const stageProgress = [0.05, 0.32, 0.58, 0.82, 0.98];
+        const triggers = ScrollTrigger.getAll();
+        const buildTrigger = triggers.find(t => t.trigger === section);
+        if (buildTrigger) {
+          const targetY = buildTrigger.start + (buildTrigger.end - buildTrigger.start) * stageProgress[idx];
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
+      });
+    });
+
+    const mm = gsap.matchMedia();
+
+    // 1. Accessibility: prefers-reduced-motion (no pinning, no scrub, show completed cake)
+    mm.add("(prefers-reduced-motion: reduce)", () => {
+      gsap.set('.cake-stage-img', { opacity: 0, scale: 1, y: 0 });
+      gsap.set('.cake-stage-5', { opacity: 1, scale: 1 });
+      steps.forEach(step => step.classList.add('active'));
+      dots.forEach(dot => dot.classList.add('active'));
+      if (badgeText) badgeText.textContent = 'Stage 5 of 5';
+    });
+
+    // Helper: Build timeline with scrub pinning
+    function createScrollTimeline(pinDistance) {
+      setActiveStage(0);
+
+      // Initial visual states: stage 1 is fully visible, 2-5 are slightly enlarged and hidden
+      gsap.set('.cake-stage-img', { opacity: 0, scale: 1.04, y: 0 });
+      gsap.set('.cake-stage-1', { opacity: 1, scale: 1 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          pin: pinTarget,
+          start: 'top top',
+          end: pinDistance,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const p = self.progress;
+            let currentStage = 0;
+            if (p < 0.20) currentStage = 0;
+            else if (p < 0.45) currentStage = 1;
+            else if (p < 0.70) currentStage = 2;
+            else if (p < 0.90) currentStage = 3;
+            else currentStage = 4;
+            setActiveStage(currentStage);
+          }
+        }
+      });
+
+      // Stage 2: Whipped cream filling (fades in and settles from 1.04 to 1)
+      tl.to('.cake-stage-2', {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: 'power1.out'
+      }, 0.2);
+
+      // Stage 3: Swiss meringue buttercream
+      tl.to('.cake-stage-3', {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: 'power1.out'
+      }, 1.2);
+
+      // Stage 4: Fresh raspberries (adds a small lift effect: y from 16 to 0)
+      tl.fromTo('.cake-stage-4',
+        { opacity: 0, scale: 1.04, y: 16 },
+        { opacity: 1, scale: 1, y: 0, duration: 1, ease: 'power1.out' },
+        2.2
+      );
+
+      // Stage 5: Finished cake with chocolate drip and candle
+      tl.to('.cake-stage-5', {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: 'power1.out'
+      }, 3.2);
+
+      // Hold stage 5 briefly before section unpins
+      tl.to({}, { duration: 0.6 }, 4.2);
+
+      return tl;
+    }
+
+    // 2. Desktop (>= 768px): 400% pin length
+    mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+      const tl = createScrollTimeline(DESKTOP_PIN_DISTANCE);
+      return () => {
+        tl.kill();
+      };
+    });
+
+    // 3. Mobile (< 768px): 300% pin length with stacked layout
+    mm.add("(max-width: 767px) and (prefers-reduced-motion: no-preference)", () => {
+      const tl = createScrollTimeline(MOBILE_PIN_DISTANCE);
+      return () => {
+        tl.kill();
+      };
+    });
+
+    // Refresh ScrollTrigger after all cake stage images load
+    const stageImgs = document.querySelectorAll('.cake-stage-img');
+    let loadedStages = 0;
+    stageImgs.forEach(img => {
+      if (img.complete) {
+        loadedStages++;
+      } else {
+        img.addEventListener('load', () => {
+          loadedStages++;
+          if (loadedStages === stageImgs.length) {
+            ScrollTrigger.refresh();
+          }
+        }, { once: true });
+      }
+    });
+
+    window.addEventListener('load', () => {
+      ScrollTrigger.refresh();
+    });
+  }
+
+  // Initialize Scroll-driven Cake Build
+  initCakeBuildScrollAnimation();
 });
+

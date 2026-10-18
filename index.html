@@ -27,6 +27,9 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍰</text></svg>">
   <link rel="apple-touch-icon" href="https://maison-crumb.onrender.com/assets/images/hero-cake.jpg">
 
+  <!-- Preload Critical Above-The-Fold / First Animation Assets -->
+  <link rel="preload" as="image" href="assets/images/build/stage-1.webp">
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -510,6 +513,101 @@
             <a href="#gallery" class="link-editorial">
               Explore custom gallery →
             </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6B. SCROLL-DRIVEN CAKE BUILD (LAYER BY LAYER)
+       ========================================================================== -->
+  <section class="section cake-build-section" id="cake-build" aria-label="Layer by Layer Cake Crafting">
+    <div class="cake-build-pin">
+      <div class="container cake-build-container">
+        <!-- Section Header -->
+        <div class="section-header cake-build-header">
+          <span class="section-eyebrow">The Craft Behind Every Cake</span>
+          <h2 class="section-title">Made slowly, layer by layer.</h2>
+          <p class="section-subtitle">
+            Watch an artisanal celebration cake come to life — from freshly baked sponge to hand-finished perfection.
+          </p>
+        </div>
+
+        <div class="cake-build-grid">
+          <!-- Left: Square Media Frame with 5 absolutely stacked images -->
+          <div class="cake-build-media-col">
+            <div class="cake-build-stage-frame">
+              <img src="assets/images/build/stage-1.webp" alt="Real butter sponge baked fresh on white ceramic stand" class="cake-stage-img cake-stage-1" width="1200" height="1200">
+              <img src="assets/images/build/stage-2.webp" alt="Silky whipped cream filling layered between sponges" class="cake-stage-img cake-stage-2" width="1200" height="1200">
+              <img src="assets/images/build/stage-3.webp" alt="Textured Swiss meringue buttercream frosting" class="cake-stage-img cake-stage-3" width="1200" height="1200">
+              <img src="assets/images/build/stage-4.webp" alt="Fresh raspberries hand placed on frosting" class="cake-stage-img cake-stage-4" width="1200" height="1200">
+              <img src="assets/images/build/stage-5.webp" alt="Finished celebration cake with chocolate drip and candle" class="cake-stage-img cake-stage-5" width="1200" height="1200">
+
+              <div class="cake-stage-badge">
+                <span class="cake-stage-badge-dot"></span>
+                <span class="cake-stage-badge-text">Stage 1 of 5</span>
+              </div>
+            </div>
+
+            <!-- 5 Progress Dots that fill as stages advance -->
+            <div class="cake-build-progress" aria-label="5-stage build progress indicator">
+              <span class="cake-dot active" data-step="1" title="Stage 1: Real butter sponge"></span>
+              <span class="cake-dot" data-step="2" title="Stage 2: Silky whipped cream"></span>
+              <span class="cake-dot" data-step="3" title="Stage 3: Swiss meringue buttercream"></span>
+              <span class="cake-dot" data-step="4" title="Stage 4: Fresh berries"></span>
+              <span class="cake-dot" data-step="5" title="Stage 5: Finished and ready"></span>
+            </div>
+          </div>
+
+          <!-- Right: 5 Text Steps -->
+          <div class="cake-build-text-col">
+            <div class="cake-steps-list">
+              <!-- Step 1 -->
+              <div class="cake-step-item active" data-step="1">
+                <div class="cake-step-num">01</div>
+                <div class="cake-step-body">
+                  <h3 class="cake-step-title">Real butter sponge, baked fresh</h3>
+                  <p class="cake-step-desc">Pure European butter and Madagascar vanilla, baked in small batches on your celebration morning.</p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="cake-step-item" data-step="2">
+                <div class="cake-step-num">02</div>
+                <div class="cake-step-body">
+                  <h3 class="cake-step-title">Silky whipped cream filling</h3>
+                  <p class="cake-step-desc">Feather-light dairy cream infused with seasonal fruit compote, gently layered between each sponge.</p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="cake-step-item" data-step="3">
+                <div class="cake-step-num">03</div>
+                <div class="cake-step-body">
+                  <h3 class="cake-step-title">Swiss meringue buttercream</h3>
+                  <p class="cake-step-desc">Hand-swirled for our signature velvety, semi-sweet finish that lets the delicate cake crumb shine.</p>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="cake-step-item" data-step="4">
+                <div class="cake-step-num">04</div>
+                <div class="cake-step-body">
+                  <h3 class="cake-step-title">Fresh berries, hand placed</h3>
+                  <p class="cake-step-desc">Hand-picked farm raspberries, individually selected, dried, and placed atop the buttercream swirl.</p>
+                </div>
+              </div>
+
+              <!-- Step 5 -->
+              <div class="cake-step-item" data-step="5">
+                <div class="cake-step-num">05</div>
+                <div class="cake-step-body">
+                  <h3 class="cake-step-title">Finished and ready to celebrate</h3>
+                  <p class="cake-step-desc">A delicate artisan chocolate drip and lit celebratory candle, boxed with our signature cotton ribbon.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1124,7 +1222,9 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Scripts: GSAP 3.12.5 + ScrollTrigger & Application JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
