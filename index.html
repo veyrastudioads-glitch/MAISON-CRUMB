@@ -13,11 +13,19 @@
   <!-- Open Graph / Meta -->
   <meta property="og:title" content="Maison Crumb — Made slowly. Celebrated beautifully.">
   <meta property="og:description" content="A premium boutique home bakery website concept by Veyra Studio. Visual cake discovery, custom orders, and seamless WhatsApp ordering.">
-  <meta property="og:image" content="assets/images/hero-cake.jpg">
+  <meta property="og:url" content="https://maison-crumb.onrender.com/">
+  <meta property="og:image" content="https://maison-crumb.onrender.com/assets/images/hero-cake.jpg">
   <meta property="og:type" content="website">
 
-  <!-- Favicon (Inline SVG) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍰</text></svg>">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Maison Crumb — Made slowly. Celebrated beautifully.">
+  <meta name="twitter:description" content="A premium boutique home bakery website concept by Veyra Studio. Visual cake discovery, custom orders, and seamless WhatsApp ordering.">
+  <meta name="twitter:image" content="https://maison-crumb.onrender.com/assets/images/hero-cake.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍰</text></svg>">
+  <link rel="apple-touch-icon" href="https://maison-crumb.onrender.com/assets/images/hero-cake.jpg">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -48,7 +56,7 @@
   <header class="site-nav" id="siteNav">
     <div class="container nav-container">
       <!-- Brand Logo Lockup -->
-      <a href="#" class="brand-lockup" aria-label="Maison Crumb Home">
+      <a href="#hero" class="brand-lockup" aria-label="Maison Crumb Home">
         <span class="brand-name">MAISON CRUMB</span>
         <span class="brand-tagline-sub">PÂTISSERIE ARTISANALE</span>
       </a>
@@ -56,7 +64,7 @@
       <!-- Desktop Navigation Links -->
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
-          <li><a href="#" class="nav-link active">Home</a></li>
+          <li><a href="#hero" class="nav-link active">Home</a></li>
           <li><a href="#featured-cakes" class="nav-link">Cakes</a></li>
           <li><a href="#categories" class="nav-link">Categories</a></li>
           <li><a href="#custom-cakes" class="nav-link">Custom Cakes</a></li>
@@ -68,7 +76,7 @@
 
       <!-- Nav CTA & Mobile Toggle -->
       <div class="nav-actions">
-        <a href="#enquiry" class="btn btn-whatsapp js-whatsapp-direct" id="navWhatsAppBtn" data-message="Hi Maison Crumb! I'm visiting your website and would like to inquire about ordering a cake.">
+        <a href="https://wa.me/919876543210?text=Hi%20Maison%20Crumb!%20I'm%20visiting%20your%20website%20and%20would%20like%20to%20inquire%20about%20ordering%20a%20cake." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp js-whatsapp-direct" id="navWhatsAppBtn" data-message="Hi Maison Crumb! I'm visiting your website and would like to inquire about ordering a cake.">
           <svg viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
           </svg>
@@ -106,7 +114,7 @@
       </div>
 
       <ul class="mobile-menu-list">
-        <li><a href="#" class="mobile-nav-link">Home</a></li>
+        <li><a href="#hero" class="mobile-nav-link">Home</a></li>
         <li><a href="#featured-cakes" class="mobile-nav-link">Cakes</a></li>
         <li><a href="#categories" class="mobile-nav-link">Categories</a></li>
         <li><a href="#custom-cakes" class="mobile-nav-link">Custom Cakes</a></li>
@@ -117,7 +125,7 @@
       </ul>
 
       <div class="mobile-nav-footer">
-        <a href="#enquiry" class="btn btn-whatsapp js-whatsapp-direct" style="width: 100%;" data-message="Hi Maison Crumb! I would like to enquire about ordering a cake.">
+        <a href="https://wa.me/919876543210?text=Hi%20Maison%20Crumb!%20I%20would%20like%20to%20enquire%20about%20ordering%20a%20cake." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp js-whatsapp-direct" style="width: 100%;" data-message="Hi Maison Crumb! I would like to enquire about ordering a cake.">
           <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
           </svg>
@@ -179,7 +187,7 @@
           <a href="#featured-cakes" class="btn btn-primary" id="heroExploreCta">
             EXPLORE CAKES
           </a>
-          <a href="#enquiry" class="btn btn-whatsapp js-whatsapp-direct" id="heroWhatsAppCta" data-message="Hi Maison Crumb! I'm planning an event and would love to check your cake availability.">
+          <a href="https://wa.me/919876543210?text=Hi%20Maison%20Crumb!%20I'm%20planning%20an%20event%20and%20would%20love%20to%20check%20your%20cake%20availability." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp js-whatsapp-direct" id="heroWhatsAppCta" data-message="Hi Maison Crumb! I'm planning an event and would love to check your cake availability.">
             <svg viewBox="0 0 24 24">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
             </svg>
@@ -248,7 +256,7 @@
         <!-- 1. Classic Chocolate Cake -->
         <article class="cake-card reveal-init delay-1">
           <div class="cake-media-wrap" onclick="openProductModal('classic-chocolate')" style="cursor: pointer;" title="Click to view details">
-            <img src="assets/images/cake-chocolate.jpg" alt="Classic Chocolate Cake with silky ganache layers" loading="lazy">
+            <img src="assets/images/cake-chocolate.jpg" alt="Classic Chocolate Cake with silky ganache layers" loading="lazy" width="600" height="400">
             <span class="cake-badge">Signature Classic</span>
           </div>
           <div class="cake-body">
@@ -271,7 +279,7 @@
         <!-- 2. Vanilla Berry Cake -->
         <article class="cake-card reveal-init delay-2">
           <div class="cake-media-wrap" onclick="openProductModal('vanilla-berry')" style="cursor: pointer;" title="Click to view details">
-            <img src="assets/images/cake-vanilla-berry.jpg" alt="Vanilla Berry Cake with mascarpone and fresh berries" loading="lazy">
+            <img src="assets/images/cake-vanilla-berry.jpg" alt="Vanilla Berry Cake with mascarpone and fresh berries" loading="lazy" width="600" height="400">
             <span class="cake-badge">Best Seller</span>
           </div>
           <div class="cake-body">
@@ -294,7 +302,7 @@
         <!-- 3. Strawberry Cream Cake -->
         <article class="cake-card reveal-init delay-3">
           <div class="cake-media-wrap" onclick="openProductModal('strawberry-cream')" style="cursor: pointer;" title="Click to view details">
-            <img src="assets/images/cake-strawberry-cream.jpg" alt="Korean style Strawberry Cream Cake" loading="lazy">
+            <img src="assets/images/cake-strawberry-cream.jpg" alt="Korean style Strawberry Cream Cake" loading="lazy" width="600" height="400">
             <span class="cake-badge">Fresh Seasonal</span>
           </div>
           <div class="cake-body">
@@ -317,7 +325,7 @@
         <!-- 4. Chocolate Fudge Cake -->
         <article class="cake-card reveal-init delay-4">
           <div class="cake-media-wrap" onclick="openProductModal('chocolate-fudge')" style="cursor: pointer;" title="Click to view details">
-            <img src="assets/images/cake-chocolate-fudge.jpg" alt="Rich Chocolate Fudge Cake with melted drip" loading="lazy">
+            <img src="assets/images/cake-chocolate-fudge.jpg" alt="Rich Chocolate Fudge Cake with melted drip" loading="lazy" width="600" height="400">
             <span class="cake-badge">Pure Indulgence</span>
           </div>
           <div class="cake-body">
@@ -364,7 +372,7 @@
         <!-- 1. Bento Cakes -->
         <div class="category-card reveal-init delay-1" onclick="selectCakeType('Bento Cake')" role="button" tabindex="0" aria-label="Explore Bento Cakes">
           <div class="category-media">
-            <img src="assets/images/cat-bento.jpg" alt="Aesthetic Korean pastel Bento lunchbox cake in sugarcane box" loading="lazy">
+            <img src="assets/images/cat-bento.jpg" alt="Aesthetic Korean pastel Bento lunchbox cake in sugarcane box" loading="lazy" width="500" height="380">
           </div>
           <div class="category-overlay">
             <span class="category-count">01 · Petit Treats</span>
@@ -377,7 +385,7 @@
         <!-- 2. Birthday Cakes -->
         <div class="category-card reveal-init delay-2" onclick="selectCakeType('Birthday Cake')" role="button" tabindex="0" aria-label="Explore Birthday Cakes">
           <div class="category-media">
-            <img src="assets/images/cat-birthday.jpg" alt="Artisanal birthday cake with fresh figs and candle" loading="lazy">
+            <img src="assets/images/cat-birthday.jpg" alt="Artisanal birthday cake with fresh figs and candle" loading="lazy" width="500" height="380">
           </div>
           <div class="category-overlay">
             <span class="category-count">02 · Wishes &amp; Candles</span>
@@ -390,7 +398,7 @@
         <!-- 3. Custom Cakes -->
         <div class="category-card reveal-init delay-3" onclick="selectCakeType('Custom Cake')" role="button" tabindex="0" aria-label="Explore Custom Cakes">
           <div class="category-media">
-            <img src="assets/images/cat-custom.jpg" alt="Two-tier bespoke custom cake with palette knife terracotta textures" loading="lazy">
+            <img src="assets/images/cat-custom.jpg" alt="Two-tier bespoke custom cake with palette knife terracotta textures" loading="lazy" width="500" height="380">
           </div>
           <div class="category-overlay">
             <span class="category-count">03 · Bespoke Artistry</span>
@@ -403,7 +411,7 @@
         <!-- 4. Cupcakes -->
         <div class="category-card reveal-init delay-1" onclick="selectCakeType('Cupcakes')" role="button" tabindex="0" aria-label="Explore Cupcakes">
           <div class="category-media">
-            <img src="assets/images/cat-cupcakes.jpg" alt="Luxury box of artisanal cupcakes with berries and gold leaf" loading="lazy">
+            <img src="assets/images/cat-cupcakes.jpg" alt="Luxury box of artisanal cupcakes with berries and gold leaf" loading="lazy" width="500" height="380">
           </div>
           <div class="category-overlay">
             <span class="category-count">04 · Boxed Delights</span>
@@ -416,7 +424,7 @@
         <!-- 5. Brownies -->
         <div class="category-card reveal-init delay-2" onclick="selectCakeType('Brownies')" role="button" tabindex="0" aria-label="Explore Fudgy Brownies">
           <div class="category-media">
-            <img src="assets/images/cat-brownies.jpg" alt="Stack of fudgy dark chocolate brownies with sea salt" loading="lazy">
+            <img src="assets/images/cat-brownies.jpg" alt="Stack of fudgy dark chocolate brownies with sea salt" loading="lazy" width="500" height="380">
           </div>
           <div class="category-overlay">
             <span class="category-count">05 · Pure Indulgence</span>
@@ -429,7 +437,7 @@
         <!-- 6. Celebration Cakes -->
         <div class="category-card reveal-init delay-3" onclick="selectCakeType('Celebration Tier')" role="button" tabindex="0" aria-label="Explore Celebration Cakes">
           <div class="category-media">
-            <img src="assets/images/cat-celebration.jpg" alt="Three-tier grand celebration cake with fresh figs and foliage" loading="lazy">
+            <img src="assets/images/cat-celebration.jpg" alt="Three-tier grand celebration cake with fresh figs and foliage" loading="lazy" width="500" height="380">
           </div>
           <div class="category-overlay">
             <span class="category-count">06 · Grand Gatherings</span>
@@ -450,7 +458,7 @@
       <div class="custom-grid">
         <!-- Visual Column -->
         <div class="custom-media-frame reveal-init">
-          <img src="assets/images/cat-custom.jpg" alt="Bespoke sculptural custom cake with textured palette knife buttercream" loading="lazy">
+          <img src="assets/images/cat-custom.jpg" alt="Bespoke sculptural custom cake with textured palette knife buttercream" loading="lazy" width="600" height="500">
           <div class="custom-media-badge">
             Bespoke Atelier Creation
           </div>
@@ -586,7 +594,7 @@
       <div class="gallery-grid">
         <!-- Item 1: Celebration Cake (Large) -->
         <div class="gallery-item g-span-7 reveal-init" data-category="celebration">
-          <img src="assets/images/cat-celebration.jpg" alt="Grand tiered celebration cake with figs" loading="lazy">
+          <img src="assets/images/hero-cake.jpg" alt="Grand tiered celebration cake with figs and berries" loading="lazy" width="700" height="480">
           <div class="gallery-overlay">
             <span class="gallery-tag">Autumn Milestone Tier · Fresh Figs &amp; Eucalyptus</span>
           </div>
@@ -594,7 +602,7 @@
 
         <!-- Item 2: Luxury Packaging -->
         <div class="gallery-item g-span-5 reveal-init delay-1" data-category="packaging">
-          <img src="assets/images/gallery-packaging.jpg" alt="Fluted cake box with grosgrain ribbon and wax seal" loading="lazy">
+          <img src="assets/images/gallery-packaging.jpg" alt="Fluted cake box with grosgrain ribbon and wax seal" loading="lazy" width="500" height="480">
           <div class="gallery-overlay">
             <span class="gallery-tag">Signature Rigid Packaging · Grosgrain Ribbon &amp; Seal</span>
           </div>
@@ -602,7 +610,7 @@
 
         <!-- Item 3: Bento Box -->
         <div class="gallery-item g-span-4 reveal-init" data-category="treats">
-          <img src="assets/images/cat-bento.jpg" alt="Pastel Korean lunchbox cake" loading="lazy">
+          <img src="assets/images/cake-strawberry-cream.jpg" alt="Korean style fresh strawberry cream cake" loading="lazy" width="400" height="320">
           <div class="gallery-overlay">
             <span class="gallery-tag">Korean Pastel Bento · Eco Sugarcane Box</span>
           </div>
@@ -610,7 +618,7 @@
 
         <!-- Item 4: Birthday Fig Cake -->
         <div class="gallery-item g-span-4 reveal-init delay-1" data-category="celebration">
-          <img src="assets/images/cat-birthday.jpg" alt="Ivory birthday cake with pearl piping and candle" loading="lazy">
+          <img src="assets/images/cake-chocolate.jpg" alt="Ivory birthday cake with pearl piping and chocolate curls" loading="lazy" width="400" height="320">
           <div class="gallery-overlay">
             <span class="gallery-tag">Vintage Pearl Border · Natural Beeswax Flame</span>
           </div>
@@ -618,7 +626,7 @@
 
         <!-- Item 5: Cupcakes Box -->
         <div class="gallery-item g-span-4 reveal-init delay-2" data-category="treats">
-          <img src="assets/images/cat-cupcakes.jpg" alt="Box of six artisanal cupcakes" loading="lazy">
+          <img src="assets/images/about-baker.jpg" alt="Baker hand-piping artisanal celebration details" loading="lazy" width="400" height="320">
           <div class="gallery-overlay">
             <span class="gallery-tag">Artisanal Cupcake Flight · Gold Leaf &amp; Berries</span>
           </div>
@@ -626,7 +634,7 @@
 
         <!-- Item 6: Brownies -->
         <div class="gallery-item g-span-6 reveal-init" data-category="treats">
-          <img src="assets/images/cat-brownies.jpg" alt="Fudgy brownies with sea salt" loading="lazy">
+          <img src="assets/images/cake-chocolate-fudge.jpg" alt="Fudgy Belgian chocolate slice with molten drip" loading="lazy" width="600" height="380">
           <div class="gallery-overlay">
             <span class="gallery-tag">Maldon Sea Salt Fudgy Brownie Stack</span>
           </div>
@@ -634,7 +642,7 @@
 
         <!-- Item 7: Vanilla Berry Cascade -->
         <div class="gallery-item g-span-6 reveal-init delay-1" data-category="celebration">
-          <img src="assets/images/cake-vanilla-berry.jpg" alt="Naked vanilla cake with berries cascade" loading="lazy">
+          <img src="assets/images/cake-vanilla-berry.jpg" alt="Naked vanilla cake with berries cascade" loading="lazy" width="600" height="380">
           <div class="gallery-overlay">
             <span class="gallery-tag">Summer Vanilla Sponge · Organic Berry Cascades</span>
           </div>
@@ -652,7 +660,7 @@
         <!-- Visual Column -->
         <div class="about-media-wrapper reveal-init">
           <div class="about-media-card">
-            <img src="assets/images/about-baker.jpg" alt="Artisanal baker finishing a cake on marble counter in a warm kitchen" loading="lazy">
+            <img src="assets/images/about-baker.jpg" alt="Artisanal baker finishing a cake on marble counter in a warm kitchen" loading="lazy" width="600" height="650">
             <div class="about-badge">
               <div class="about-badge-text">Purely Handcrafted</div>
               <div class="about-badge-sub">No Pre-Mixes · No Shortcuts</div>
@@ -771,15 +779,22 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="flavorPreference">Flavor &amp; Dietary</label>
+                <label for="flavorPreference">Flavor Preference</label>
                 <select id="flavorPreference" class="form-control">
                   <option value="Classic Dark Chocolate Ganache">Dark Chocolate Ganache</option>
                   <option value="Madagascar Vanilla & Fresh Berries">Vanilla &amp; Fresh Berries</option>
                   <option value="Strawberry & Chantilly Cream">Strawberry Chantilly Cream</option>
                   <option value="Salted Caramel & Roasted Pecan">Salted Caramel Pecan</option>
-                  <option value="Eggless / Dietary Requested">Eggless (Special Request)</option>
                 </select>
               </div>
+            </div>
+
+            <!-- Dietary Checkbox -->
+            <div class="form-group form-checkbox-group" style="margin-top: -0.25rem; margin-bottom: 1.25rem;">
+              <label class="checkbox-label" for="isEggless" style="display: inline-flex; align-items: center; gap: 0.65rem; cursor: pointer; font-size: 0.88rem; font-weight: 500; color: var(--color-cocoa-900);">
+                <input type="checkbox" id="isEggless" name="isEggless" style="width: 18px; height: 18px; accent-color: var(--color-whatsapp); cursor: pointer;">
+                <span>🌱 <strong>Eggless Preparation</strong> (100% vegetarian friendly)</span>
+              </label>
             </div>
 
             <!-- Row 4: Custom Notes / Message -->
@@ -790,6 +805,9 @@
               </label>
               <textarea id="customerNotes" class="form-control" placeholder="e.g. 'Happy 30th Ananya!' in delicate cursive piping, warm blush & cream tones."></textarea>
             </div>
+
+            <!-- Form Validation Error Feedback Container -->
+            <div id="formErrorMessage" class="form-error-alert" role="alert" style="display: none; padding: 0.75rem 1rem; margin-bottom: 1rem; border-radius: var(--radius-xs); background-color: #FDEDEC; border: 1px solid #E6B0AA; color: #922B21; font-size: 0.82rem; font-weight: 500;"></div>
 
             <!-- Actions -->
             <div class="form-actions">
@@ -835,7 +853,8 @@
 🎂 *Cake Type:* Classic Chocolate Cake
 📅 *Preferred Date:* Flexible
 👥 *Servings:* 6–8 Servings
-✨ *Flavor:* Classic Dark Chocolate Ganache
+✨ *Flavor:* Dark Chocolate Ganache
+🌱 *Eggless:* No (Standard)
 📝 *Requirements / Design Notes:* None specified
 ------------------------------------
 _Sent via Maison Crumb Demo Concept by Veyra Studio_
@@ -859,7 +878,7 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
               <h5>Prefer direct WhatsApp chat?</h5>
               <p>Skip the form and chat casually about ideas.</p>
             </div>
-            <a href="#hero" class="btn btn-secondary js-whatsapp-direct" style="padding: 0.65rem 1.1rem; font-size: 0.75rem;" data-message="Hi Maison Crumb! I'd like to ask a quick question about ordering a cake.">
+            <a href="https://wa.me/919876543210?text=Hi!%20I'd%20like%20to%20know%20more%20about%20your%20cakes." target="_blank" rel="noopener noreferrer" class="btn btn-secondary js-whatsapp-direct" style="padding: 0.65rem 1.1rem; font-size: 0.75rem;" data-message="Hi! I'd like to know more about your cakes.">
               CHAT NOW →
             </a>
           </div>
@@ -894,7 +913,7 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
           </div>
           <h4>Instagram</h4>
           <p>Follow our daily bakes, process stories &amp; customer cake reveals.</p>
-          <a href="#" class="contact-link" onclick="event.preventDefault(); alert('Demo Link: In production this links directly to the bakery Instagram profile.');">@maisoncrumb.demo →</a>
+          <a href="https://instagram.com/maisoncrumb.demo" target="_blank" rel="noopener noreferrer" class="contact-link js-instagram-link">@maisoncrumb.demo →</a>
         </div>
 
         <!-- 2. WhatsApp -->
@@ -906,7 +925,7 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
           </div>
           <h4>WhatsApp</h4>
           <p>Instant orders, slot bookings &amp; bespoke consultations.</p>
-          <a href="#hero" class="contact-link js-whatsapp-direct">+91 98765 43210 (Demo) →</a>
+          <a href="https://wa.me/919876543210?text=Hi!%20I'd%20like%20to%20know%20more%20about%20your%20cakes." target="_blank" rel="noopener noreferrer" class="contact-link js-whatsapp-direct" data-message="Hi! I'd like to know more about your cakes.">+91 98765 43210 (Demo) →</a>
         </div>
 
         <!-- 3. Email -->
@@ -923,7 +942,7 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
         </div>
 
         <!-- 4. Service Area -->
-        <div class="contact-card reveal-init delay-4">
+        <div class="contact-card reveal-init delay-4" id="delivery-info">
           <div class="contact-icon" style="background-color: #F4EFEA; color: var(--color-cocoa-900);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -971,7 +990,7 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
         <div class="footer-col">
           <h5>Navigation</h5>
           <ul class="footer-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="#hero">Home</a></li>
             <li><a href="#featured-cakes">Signature Cakes</a></li>
             <li><a href="#categories">Cake Collections</a></li>
             <li><a href="#custom-cakes">Bespoke Creations</a></li>
@@ -985,13 +1004,13 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
         <div class="footer-col">
           <h5>Direct Inquiries</h5>
           <ul class="footer-links">
-            <li><a href="#enquiry" class="js-whatsapp-direct">Order on WhatsApp</a></li>
-            <li><a href="#" onclick="event.preventDefault(); alert('Demo: Follow on Instagram @maisoncrumb.demo');">Instagram (@maisoncrumb.demo)</a></li>
+            <li><a href="https://wa.me/919876543210?text=Hi!%20I'd%20like%20to%20know%20more%20about%20your%20cakes." target="_blank" rel="noopener noreferrer" class="js-whatsapp-direct" data-message="Hi! I'd like to know more about your cakes.">Order on WhatsApp</a></li>
+            <li><a href="https://instagram.com/maisoncrumb.demo" target="_blank" rel="noopener noreferrer" class="js-instagram-link">Instagram (@maisoncrumb.demo)</a></li>
             <li><a href="mailto:hello@maisoncrumb.demo">Email Concierge</a></li>
-            <li><a href="#process">Delivery &amp; Pickup Info</a></li>
+            <li><a href="#delivery-info">Delivery &amp; Pickup Info</a></li>
           </ul>
           <div style="margin-top: 1.5rem;">
-            <a href="#enquiry" class="btn btn-whatsapp js-whatsapp-direct" style="padding: 0.65rem 1.25rem; font-size: 0.74rem;">
+            <a href="https://wa.me/919876543210?text=Hi%20Maison%20Crumb!%20I'd%20like%20to%20chat%20on%20WhatsApp%20about%20ordering%20a%20cake." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp js-whatsapp-direct" style="padding: 0.65rem 1.25rem; font-size: 0.74rem;" data-message="Hi Maison Crumb! I'd like to chat on WhatsApp about ordering a cake.">
               CHAT ON WHATSAPP
             </a>
           </div>
@@ -1019,7 +1038,7 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
         <span class="mobile-avail-status">Slots Open</span>
         <span class="mobile-sticky-label">Order Next Week's Cake</span>
       </div>
-      <a href="#enquiry" class="btn btn-whatsapp js-whatsapp-direct" style="padding: 0.7rem 1.25rem; font-size: 0.78rem;" data-message="Hi Maison Crumb! I'm on mobile and would like to order a cake on WhatsApp.">
+      <a href="https://wa.me/919876543210?text=Hi%20Maison%20Crumb!%20I'm%20on%20mobile%20and%20would%20like%20to%20order%20a%20cake%20on%20WhatsApp." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp js-whatsapp-direct" style="padding: 0.7rem 1.25rem; font-size: 0.78rem;" data-message="Hi Maison Crumb! I'm on mobile and would like to order a cake on WhatsApp.">
         <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor;">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
@@ -1042,7 +1061,7 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
 
       <div class="modal-body-grid">
         <div class="modal-media">
-          <img id="modalImg" src="assets/images/cake-chocolate.jpg" alt="Cake Preview">
+          <img id="modalImg" src="assets/images/cake-chocolate.jpg" alt="Cake Preview" width="600" height="500">
         </div>
         <div class="modal-details">
           <span class="modal-category" id="modalCategory">Signature Collection</span>
@@ -1100,7 +1119,7 @@ _Sent via Maison Crumb Demo Concept by Veyra Studio_
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <img id="lightboxImg" src="" alt="Gallery Image">
+      <img id="lightboxImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Gallery Image" style="display: none;">
       <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
   </div>

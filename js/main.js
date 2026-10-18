@@ -5,8 +5,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Demo WhatsApp number (placeholder compliant with guidelines)
-  const DEMO_WHATSAPP_NUMBER = '919876543210';
+  // Configuration: WhatsApp number and Instagram profile
+  const WHATSAPP_NUMBER = '919876543210';
+  const INSTAGRAM_URL = 'https://instagram.com/maisoncrumb.demo';
 
   /* ==========================================================================
      1. PRODUCT DATA FOR QUICK-VIEW MODAL
@@ -133,17 +134,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const cakeType = document.getElementById('cakeType');
   const preferredServings = document.getElementById('preferredServings');
   const flavorPreference = document.getElementById('flavorPreference');
+  const isEggless = document.getElementById('isEggless');
   const customerNotes = document.getElementById('customerNotes');
+  const formErrorMessage = document.getElementById('formErrorMessage');
   const waPreviewText = document.getElementById('waPreviewText');
   const btnSendWhatsApp = document.getElementById('btnSendWhatsApp');
+
+  function showFormError(message) {
+    if (formErrorMessage) {
+      formErrorMessage.textContent = message;
+      formErrorMessage.style.display = 'block';
+    }
+  }
+
+  function clearFormError() {
+    if (formErrorMessage) {
+      formErrorMessage.textContent = '';
+      formErrorMessage.style.display = 'none';
+    }
+  }
 
   function generateWhatsAppMessage() {
     const name = customerName?.value.trim() || 'A Guest';
     const phone = customerPhone?.value.trim() || 'Not provided';
-    const type = cakeType?.value || 'Custom Cake Creation';
+    const type = cakeType?.value || 'Classic Chocolate Cake';
     const date = dateInput?.value || 'Flexible';
     const servings = preferredServings?.value || '6–8 Servings';
-    const flavor = flavorPreference?.value || 'Chef Choice / Custom';
+    const flavor = flavorPreference?.value || 'Dark Chocolate Ganache';
+    const eggless = isEggless?.checked ? 'Yes (100% Eggless)' : 'No (Standard)';
     const notes = customerNotes?.value.trim() || 'None specified';
 
     return `🍰 *NEW CAKE ENQUIRY — MAISON CRUMB*\n` +
@@ -154,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `📅 *Preferred Date:* ${date}\n` +
       `👥 *Servings:* ${servings}\n` +
       `✨ *Flavor:* ${flavor}\n` +
+      `🌱 *Eggless:* ${eggless}\n` +
       `📝 *Requirements / Design Notes:* ${notes}\n` +
       `------------------------------------\n` +
       `_Sent via Maison Crumb Demo Concept by Veyra Studio_`;
@@ -164,31 +183,54 @@ document.addEventListener('DOMContentLoaded', () => {
     waPreviewText.textContent = generateWhatsAppMessage();
   }
 
-  // Bind input listeners for live updates
-  const formInputs = [customerName, customerPhone, cakeType, dateInput, preferredServings, flavorPreference, customerNotes];
+  // Bind input listeners for live updates and instant error clearing
+  const formInputs = [customerName, customerPhone, cakeType, dateInput, preferredServings, flavorPreference, isEggless, customerNotes];
   formInputs.forEach(input => {
     if (input) {
-      input.addEventListener('input', updateWhatsAppPreview);
-      input.addEventListener('change', updateWhatsAppPreview);
+      input.addEventListener('input', () => {
+        clearFormError();
+        updateWhatsAppPreview();
+      });
+      input.addEventListener('change', () => {
+        clearFormError();
+        updateWhatsAppPreview();
+      });
     }
   });
 
   // Initial preview sync
   updateWhatsAppPreview();
 
-  // Send WhatsApp Action
+  // Send WhatsApp Action with strict validation
   if (enquiryForm) {
     enquiryForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
+      const nameVal = customerName?.value.trim();
+      const phoneVal = customerPhone?.value.trim();
+      const dateVal = dateInput?.value.trim();
+
+      const missing = [];
+      if (!nameVal) missing.push('Your Name');
+      if (!phoneVal) missing.push('WhatsApp Number');
+      if (!dateVal) missing.push('Preferred Date');
+
+      if (missing.length > 0) {
+        const errorText = `Please fill in all required fields: ${missing.join(', ')}.`;
+        showFormError(errorText);
+        showToast(errorText);
+        if (!nameVal) customerName?.focus();
+        else if (!phoneVal) customerPhone?.focus();
+        else if (!dateVal) dateInput?.focus();
+        return;
+      }
+
+      clearFormError();
       const message = generateWhatsAppMessage();
-      const whatsappUrl = `https://wa.me/${DEMO_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       
       showToast('Opening WhatsApp with your bespoke cake enquiry...');
-      
-      setTimeout(() => {
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      }, 500);
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     });
   }
 
@@ -216,15 +258,22 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const directWhatsAppButtons = document.querySelectorAll('.js-whatsapp-direct');
   directWhatsAppButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const customMsg = btn.dataset.message || "Hi Maison Crumb! I'm interested in ordering a handcrafted cake for an upcoming celebration.";
-      const url = `https://wa.me/${DEMO_WHATSAPP_NUMBER}?text=${encodeURIComponent(customMsg)}`;
+    const customMsg = btn.dataset.message || "Hi! I'd like to know more about your cakes.";
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(customMsg)}`;
+    btn.setAttribute('href', url);
+    btn.setAttribute('target', '_blank');
+    btn.setAttribute('rel', 'noopener noreferrer');
+
+    btn.addEventListener('click', () => {
       showToast('Connecting you to Maison Crumb on WhatsApp...');
-      setTimeout(() => {
-        window.open(url, '_blank', 'noopener,noreferrer');
-      }, 400);
     });
+  });
+
+  const instagramLinks = document.querySelectorAll('.js-instagram-link');
+  instagramLinks.forEach(link => {
+    link.setAttribute('href', INSTAGRAM_URL);
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
   });
 
   /* ==========================================================================
@@ -283,14 +332,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const cake = CAKE_CATALOG[currentCakeKey];
       if (!cake) return;
       
-      const msg = `Hi Maison Crumb! I'm interested in ordering the *${cake.title}* (${cake.price}). Could you please share slot availability and options?`;
-      const url = `https://wa.me/${DEMO_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+      const msg = `Hi! I'd like to enquire about the ${cake.title}.`;
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
       
       closeProductModal();
-      showToast(`Initiating enquiry for ${cake.title}...`);
-      setTimeout(() => {
-        window.open(url, '_blank', 'noopener,noreferrer');
-      }, 400);
+      showToast(`Opening WhatsApp for ${cake.title}...`);
+      window.open(url, '_blank', 'noopener,noreferrer');
     });
   }
 
@@ -339,6 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (img && lightboxModal && lightboxImg) {
         lightboxImg.src = img.src;
         lightboxImg.alt = img.alt;
+        lightboxImg.style.display = 'block';
         if (lightboxCaption) lightboxCaption.textContent = tag;
         lightboxModal.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -349,6 +397,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeLightbox = () => {
     if (!lightboxModal) return;
     lightboxModal.classList.remove('active');
+    if (lightboxImg) {
+      lightboxImg.style.display = 'none';
+      lightboxImg.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E";
+    }
     document.body.style.overflow = '';
   };
 
