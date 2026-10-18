@@ -6,7 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Configuration: WhatsApp number and Instagram profile
-  const WHATSAPP_NUMBER = '919876543210';
+  const WHATSAPP_NUMBER = '917736711672';
   const INSTAGRAM_URL = 'https://instagram.com/maisoncrumb.demo';
 
   /* ==========================================================================

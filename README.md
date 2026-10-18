@@ -175,7 +175,7 @@ When adapting this demo for a real bakery client:
 
 1. **Update WhatsApp Number**:
    - Open [js/main.js](file:///d:/website/Cake/js/main.js)
-   - Change `DEMO_WHATSAPP_NUMBER = '919876543210'` to the client's international phone number (without `+` or spaces).
+   - Change `DEMO_WHATSAPP_NUMBER = '917736711672'` to the client's international phone number (without `+` or spaces).
 2. **Update Social & Contact Links**:
    - In [index.html](file:///d:/website/Cake/index.html), search for `@maisoncrumb.demo` and replace with the client's actual Instagram handle and email.
 3. **Change Products & Flavors**:
